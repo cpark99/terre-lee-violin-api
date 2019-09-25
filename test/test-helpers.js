@@ -48,7 +48,6 @@ function makeApplicationsArray() {
       id: 1,
       date_created: '2029-01-22T16:28:32.615Z',
       email: 'test@tester.com',
-      password: 'password',
       name: 'tester',
       phone: '8888888888',
       message: 'I love violin'
@@ -57,7 +56,6 @@ function makeApplicationsArray() {
       id: 2,
       date_created: '2029-01-22T16:28:32.615Z',
       email: 'test2@tester.com',
-      password: 'password',
       name: 'tester2',
       phone: '8888888888',
       message: 'I love violin'
@@ -66,7 +64,6 @@ function makeApplicationsArray() {
       id: 3,
       date_created: '2029-01-22T16:28:32.615Z',
       email: 'test3@tester.com',
-      password: 'password',
       name: 'tester3',
       phone: '8888888888',
       message: 'I love violin'
@@ -75,7 +72,6 @@ function makeApplicationsArray() {
       id: 4,
       date_created: '2029-01-22T16:28:32.615Z',
       email: 'test4@tester.com',
-      password: 'password',
       name: 'tester4',
       phone: '8888888888',
       message: 'I love violin'
@@ -171,10 +167,16 @@ function makeUsersFixtures() {
   return { testUsers };
 }
 
+function makeApplicationsFixtures() {
+  const testApplications = makeApplicationsArray();
+  return { testApplications };
+}
+
 function cleanTables(db) {
   return db.raw(
     `TRUNCATE
-      tlv_users
+      tlv_users,
+      tlv_applications
       RESTART IDENTITY CASCADE`
   );
 }
@@ -191,6 +193,7 @@ module.exports = {
   makeMaliciousApplication,
   makeAuthHeader,
   makeUsersFixtures,
+  makeApplicationsFixtures,
   cleanTables,
   seedMaliciousApplication,
   seedUsers,
