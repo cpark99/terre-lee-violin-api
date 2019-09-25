@@ -1,5 +1,4 @@
 const xss = require('xss');
-// const bcrypt = require('bcryptjs');
 
 const UsersService = {
   hasUserWithEmail(db, email) {

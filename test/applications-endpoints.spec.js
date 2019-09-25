@@ -70,27 +70,21 @@ describe('Applications Endpoints', function() {
               const actualDate = new Date(res.body.date_created).toLocaleString();
               expect(actualDate).to.eql(expectedDate);
             })
-            .expect(
-              res =>
-                db
-                  .from('tlv_applications')
-                  .select('*')
-                  .where({ id: res.body.id })
-                  .first()
-                  .then(row => {
-                    expect(row.email).to.eql(newApplication.email);
-                    expect(row.name).to.eql(newApplication.name);
-                    expect(row.phone).to.eql(newApplication.phone);
-                    expect(row.message).to.eql(newApplication.message);
-                    const expectedDate = new Date().toLocaleString('en', { timeZone: 'UTC' });
-                    const actualDate = new Date(row.date_created).toLocaleString();
-                    expect(actualDate).to.eql(expectedDate);
-
-                    // return bcrypt.compare(newApplication.password, row.password);
-                  })
-              // .then(compareMatch => {
-              //   expect(compareMatch).to.be.true;
-              // })
+            .expect(res =>
+              db
+                .from('tlv_applications')
+                .select('*')
+                .where({ id: res.body.id })
+                .first()
+                .then(row => {
+                  expect(row.email).to.eql(newApplication.email);
+                  expect(row.name).to.eql(newApplication.name);
+                  expect(row.phone).to.eql(newApplication.phone);
+                  expect(row.message).to.eql(newApplication.message);
+                  const expectedDate = new Date().toLocaleString('en', { timeZone: 'UTC' });
+                  const actualDate = new Date(row.date_created).toLocaleString();
+                  expect(actualDate).to.eql(expectedDate);
+                })
             );
         });
       });
