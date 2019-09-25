@@ -11,7 +11,7 @@ INSERT INTO tlv_users (
   next_lesson,
   amount_due
 ) VALUES
-  ('MakeMeMoney@ff.com',
+  ('violin@demo.com',
   '$2a$12$C7YA3Eav2k44c5bmRhOZXesNmw8fYXAaBggk78GeVTyIU6XcgM26m',
   'Jane Doe',
   '10/1',
@@ -25,7 +25,7 @@ INSERT INTO tlv_applications (
   message
 ) VALUES
   ('Jane Doe',
-  'MakeMeMoney@ff.com',
+  'violin@demo.com',
   '8888888888',
   'I have always wanted to learn!'
   );

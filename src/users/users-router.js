@@ -2,13 +2,13 @@ const express = require('express');
 // const path = require('path');
 // const jsonBodyParser = express.json();
 // const jsonParser = express.json();
-// const { requireAuth } = require('../middleware/jwt-auth');
+const { requireAuth } = require('../middleware/jwt-auth');
 const UsersService = require('./users-service');
 const usersRouter = express.Router();
 
 usersRouter
   .route('/:user_id')
-  // .all(requireAuth)
+  .all(requireAuth)
   .all((req, res, next) => {
     UsersService.getById(req.app.get('db'), req.params.user_id)
       .then(user => {
